@@ -1,0 +1,59 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 22
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildToolsVersion = '29.0.2'
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+/** 以下开始是将Android Library上传到jcenter的相关配置
+ *
+ * compile'com.aaron:AndroidBaseMVVMLibrary:1.0.0'
+ *
+ * GROUP_ID是com.aaron
+ * ARTIFACT_ID是AndroidBaseMVVMLibrary
+ * VERSION是1.0.0
+ *
+ **/
+apply plugin: 'com.novoda.bintray-release'// 在apply plugin: 'com.android.library'之后
+//项目主页
+def siteUrl = 'https://github.com/StarsAaron/CustomKeyboardDemo'
+publish{
+    userOrg = 'aaronstars'//bintray.com的用户名
+    repoName = 'android-library'//远程仓库名字,不指明，默认是上传到maven
+    groupId = 'com.aaron'//jcenter上的路径
+    artifactId = 'CustomKeyboardLibrary'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc = 'Android custom keyboard'//描述，不重要
+    website = siteUrl//项目主页
+}
+//防止编码问题
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}

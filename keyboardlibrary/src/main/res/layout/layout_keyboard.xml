@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/keyboard_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/keyboard_general_nom"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/iv_keyboard_close"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_alignParentEnd="true"
+            android:padding="8dp"
+            android:src="@mipmap/ic_close" />
+        <TextView
+            android:id="@+id/tv_keyboard_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#3c3c3c" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/color_d8dbdf">
+        <!-- 普通数字键盘样式 -->
+        <com.aaron.keyboardlibrary.CustomKeyBoardView
+            android:id="@+id/keyboard_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:background="@color/keyboard_blackground"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:keyBackground="@drawable/btn_keyboard_key"
+            android:keyTextColor="@color/black"
+            android:keyTextSize="28dp"
+            android:labelTextSize="20dp"
+            android:shadowColor="@color/black"
+            android:shadowRadius="0.0"
+            android:visibility="gone" />
+        <!-- 字母键盘样式 -->
+        <com.aaron.keyboardlibrary.CustomKeyBoardView
+            android:id="@+id/keyboard_view_abc_sym"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@color/color_d8dbdf"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:keyBackground="@drawable/btn_keyboard_abc_key"
+            android:keyPreviewHeight="70dp"
+            android:keyPreviewLayout="@layout/keyboardd_preview"
+            android:keyPreviewOffset="-3dp"
+            android:keyTextColor="@color/color_3c3c3c"
+            android:keyTextSize="20dp"
+            android:labelTextSize="15dp"
+            android:shadowColor="@color/black"
+            android:shadowRadius="0.0"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>

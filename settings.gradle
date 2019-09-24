@@ -1,0 +1,2 @@
+include ':app', ':keyboardlibrary'
+rootProject.name='CustomKeyboardDemo'
